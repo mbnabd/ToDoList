@@ -181,7 +181,6 @@ p , h2 ,input{
     align-items: center;
     border-bottom: 1px solid var(--hourColor) ;
     cursor: move;
-    transition: all 0.2s linear;
 
 }
 .dragging{
@@ -190,6 +189,9 @@ p , h2 ,input{
 .checkbox{
     width: 20px;
     height: 20px;
+}
+.checked{
+    text-decoration: line-through solid var(--textcolor);
 }
 .item{
     width: 213px;

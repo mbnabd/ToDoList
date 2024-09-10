@@ -1,0 +1,316 @@
+:root{
+    --img-bg1: url(./img/darkBG1.png);
+    --textcolor : white;
+    --sunnum: 40px ; 
+    --moonnum : 16px;
+    --aroundclock :black;
+    --leftcolor:#7b7878;
+}
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Poppins;
+    src:local("Poppins"), url("./font/PoppinsLatin-Regular.ttf");
+}
+input{
+    outline: none;
+    font-family:inherit;
+    border: none;
+}
+button{
+    outline: none;
+    font-family:inherit;
+    border: none;
+    padding: none;
+}
+body.light{
+    --img-bg1: url(./img/lightBG.png);
+    --textcolor : #000000;
+    --sunnum: 25px ; 
+    --moonnum : 30px;
+    --aroundclock :#c1c1c1;
+    --leftcolor:#464545;
+
+
+}
+
+body{
+
+    transition: all 0.5s linear;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-image: var(--img-bg1) ;
+    font-family: "Poppins";
+    display:flex;
+
+}
+p , h2 ,input{
+    transition: all 0.5s linear;
+    color: var(--textcolor);
+
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    gap: 150px;
+    margin-left: 900px;
+}
+.colorthem{
+    display: flex;
+    gap :5px;
+    align-items: center;
+}
+.TName{
+    font-size: 10px;
+}
+.color{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid white;
+    cursor:pointer ;
+
+}
+
+.red{
+    background-color: #912222;
+}
+.blue{
+    background-color: #22009f;
+}
+.green{
+    background-color: #01482a;
+}
+.yellow{
+    background-color: #797d02;
+}
+.nothing{
+    background-color: inherit;
+    border: 1px solid var(--textcolor);
+}
+
+.them{
+    cursor:pointer ;
+    display: flex;
+    align-items: center;
+
+}
+.sun{
+
+    transition: all 0.5s linear;
+    color: var(--textcolor);
+    width: var(--sunnum);
+    height:var(--sunnum);
+
+}
+.moon{
+    transition: all 0.5s linear;
+    color: var(--textcolor);
+    width: var(--moonnum);
+    height: var(--moonnum);
+
+}
+/*.....Left...............................................*/
+.container{
+
+    width: 380px;
+    height: auto;
+    margin-top: 30px;
+
+}
+.leftway{
+    margin-left: 180px;
+    width: 380px;
+}
+.leftway.active  .list.checked{
+    display: none;
+    transition: all 0.4s;
+}
+.leftway.active  .list:not(.checked){
+    display: flex;
+    transition: all 0.4s;
+}
+.leftway.completed .list:not(.checked){
+    display: none;
+    transition: all 0.4s;
+}
+#task{
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+.o-in-of{
+    width: 27px;
+    height: 27px;
+}
+.adding{
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+
+}
+.addbtn{
+    transition: all 0.1s linear;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.add{
+    background-color: inherit;
+    width: 95%;
+    margin-left: 7px;
+
+}
+.list{
+    display: flex;
+    gap:20px;
+    height: 50px;
+    margin-top: 10px;
+    padding-left: 7%;
+    align-items: center;
+    border-bottom: 1px solid var(--hourColor) ;
+    cursor: move;
+    transition: all 0.2s linear;
+
+}
+.dragging{
+    opacity: 0.5;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+.item{
+    width: 213px;
+}
+.delet{
+    cursor: pointer;
+    width: 23px;
+    height: 23px;
+    background-color: transparent;
+    background-image: url(./img/delet.png);
+    background-size: contain;
+    border-right:1px solid var(--textcolor) ;
+    display: none;
+    transition: all 1s linear;
+}
+
+.fall{
+    pointer-events: none;
+    animation: fall 0.2s forwards;
+}
+/*..Right.......................................................*/
+.rightway{
+    margin-top: 162px;
+    padding-left:20px;
+}
+.FILTER{
+    display: flex;
+    gap: 16px;
+    font-size: 10px;
+    align-items: center;
+    transition: all 0.5s linear;
+    border:2px solid transparent;
+}
+
+.left{
+    margin-right: 20px;
+    color: var(--leftcolor);
+}
+.filtering button:not(.on){
+    transition: all 0.5s linear;
+    cursor: pointer;
+    font-size: 10px;
+    background: inherit;
+    color: var(--textcolor);
+    text-shadow: 0px 0px 5px var(--textcolor);
+}
+.on{
+    transition: all 0.5s linear;
+    background: inherit;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--textcolor);
+}
+
+
+
+.design{
+    display: flex;
+    position: absolute;
+    right: 52px;
+}
+.hourglass{
+    transition: all 0.5s linear;
+    color: white;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+    background: var(--aroundclock);
+    border-radius: 50%;
+    margin-top: 300px;
+    margin-right: -320px;
+    animation: desighn 20s infinite;
+}
+.calender{
+    transition: all 0.5s linear;
+    margin-top: 120px; 
+    color: var(--textcolor);
+    width: 306px;
+    height: 305px;
+}
+
+
+
+/* ...hover................................................... */
+.addbtn:hover{
+    scale: 1.1;
+}
+#all:hover{
+    color: var(--textcolor);
+}
+#active:hover{
+    color: var(--textcolor);
+}
+#completed:hover{
+    color: var(--textcolor);
+}
+.list:hover .delet{
+    display: block;
+}
+@keyframes fall {
+    0%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+}
+@keyframes desighn {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+
+    }
+    
+}
